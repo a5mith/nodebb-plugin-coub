@@ -1,7 +1,7 @@
 {
 	"id": "nodebb-plugin-coub",
 	"name": "NodeBB Coub",
-	"description": "NodeBB plugin that allows users to embed coubs in posts.",
+	"description": "[WORK IN PROGRESS] NodeBB plugin that allows users to embed coubs in posts.",
 	"url": "https://github.com/kosyak/nodebb-plugin-coub",
 	"library": "./library.js",
 	"hooks": [

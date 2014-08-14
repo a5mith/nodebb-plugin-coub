@@ -1,6 +1,6 @@
 # NodeBB Coub Plugin
 
-Just paste your favorite coub links - plugin will do the rest
+Just paste your favorite [coub](http://coub.com/) links - plugin will do the rest
 
 ## Installation
 

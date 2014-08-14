@@ -1,19 +1,18 @@
-/*! LazyYT (lazy load Youtube videos plugin) - v0.3.4 - 2014-06-30
-* Usage: <div class="lazyYT" data-youtube-id="laknj093n" ratio="16:9" data-parameters="rel=0">loading...</div>
-* Copyright (c) 2014 Tyler Pearson; Licensed MIT */
-
+// <iframe src="http://coub.com/embed/2w4wi?"
+//
+//
+// width="512"
+// height="384"></iframe>
 
 ;(function ($) {
     'use strict';
 
     function setUp($el) {
-        var width = $el.data('width'),
-            height = $el.data('height'),
-            ratio = $el.data('ratio'),
-            id = $el.data('youtube-id'),
-            aspectRatio = ['16', '9'],
+        var width = $el.data('width') || '512',
+            height = $el.data('height') || '384',
+            id = $el.data('coub-id'),
             paddingTop = 0,
-            youtubeParameters = $el.data('parameters') || '';
+            youtubeParameters = $el.data('parameters') || 'muted=false&autostart=false&originalSize=false&hideTopBar=false&startWithHD=false';
 
         if (typeof width === 'undefined' || typeof height === 'undefined') {
           height = 0;
@@ -27,30 +26,28 @@
             'height': height,
             'width': width,
             'padding-top': paddingTop,
-            'background': 'url(http://img.youtube.com/vi/' + id + '/hqdefault.jpg) center center no-repeat',
             'cursor': 'pointer',
-            'background-size': 'cover'
         })
-            .html('<p id="lazyYT-title-' + id + '" class="lazyYT-title"></p><div class="lazyYT-button"></div>')
-            .addClass('lazyYT-image-loaded');
+            .html('<p id="lazyCoub-title-' + id + '" class="lazyCoub-title"></p><div class="lazyCoub-button"></div>')
+            .addClass('lazyCoub-image-loaded');
 
-        $.getJSON('https://gdata.youtube.com/feeds/api/videos/' + id + '?v=2&alt=json', function (data) {
-            $('#lazyYT-title-' + id).text(data.entry.title.$t);
-        });
+        // $.getJSON('https://gdata.youtube.com/feeds/api/videos/' + id + '?v=2&alt=json', function (data) {
+        //     $('#lazyCoub-title-' + id).text(data.entry.title.$t);
+        // });
 
         $el.on('click', function (e) {
             e.preventDefault();
-            if (!$el.hasClass('lazyYT-video-loaded') && $el.hasClass('lazyYT-image-loaded')) {
-                $el.html('<iframe class="lazytube" src="//www.youtube.com/embed/' + id + '?autoplay=1"></iframe>')
-                    .removeClass('lazyYT-image-loaded')
-                    .removeClass('js-lazyYT')
-                    .addClass('lazyYT-video-loaded');
+            if (!$el.hasClass('lazyCoub-video-loaded') && $el.hasClass('lazyCoub-image-loaded')) {
+                $el.html('<iframe class="lazycoub" src="http://coub.com/embed/' + id + ' allowfullscreen="true" frameborder="0"></iframe>')
+                    .removeClass('lazyCoub-image-loaded')
+                    .removeClass('js-lazyCoub')
+                    .addClass('lazyCoub-video-loaded');
             }
         });
 
     }
 
-    $.fn.lazyYT = function () {
+    $.fn.lazyCoub = function () {
         return this.each(function () {
             var $el = $(this).css('cursor', 'pointer');
             setUp($el);
