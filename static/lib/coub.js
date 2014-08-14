@@ -10,7 +10,7 @@
         $el.html('<iframe class="coub"' +
             ' width=' + width +
             ' height=' + height +
-            ' allowfullscreen="true"'
+            ' allowfullscreen="true"' +
             ' frameborder="0"' +
             ' src="http://coub.com/embed/' + id + '?' + parameters + '"></iframe>');
     }
