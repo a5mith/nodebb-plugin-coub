@@ -7,7 +7,7 @@
             id = $el.data('coub-id'),
             parameters = $el.data('parameters') || 'muted=false&autostart=false&originalSize=false&hideTopBar=false&startWithHD=false';
 
-        $el.html('<iframe class="coub" src="http://coub.com/embed/' + id + '?' + parameters + '></iframe>');
+        $el.html('<iframe class="coub" src="http://coub.com/embed/' + id + '?' + parameters + '"></iframe>');
         $el.prop('width', width);
         $el.prop('height', height);
         $el.prop('allowfullscreen', 'true');
