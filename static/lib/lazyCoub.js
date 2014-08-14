@@ -38,7 +38,7 @@
         $el.on('click', function (e) {
             e.preventDefault();
             if (!$el.hasClass('lazyCoub-video-loaded') && $el.hasClass('lazyCoub-image-loaded')) {
-                $el.html('<iframe class="lazycoub" src="http://coub.com/embed/' + id + ' allowfullscreen="true" frameborder="0"></iframe>')
+                $el.html('<iframe class="lazycoub" src="http://coub.com/embed/' + id + '" allowfullscreen="true" frameborder="0"></iframe>')
                     .removeClass('lazyCoub-image-loaded')
                     .removeClass('js-lazyCoub')
                     .addClass('lazyCoub-video-loaded');
