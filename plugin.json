@@ -13,7 +13,7 @@
         "static/style.less"
     ],
     "scripts": [
-		"static/lib/lazyCoub.js",
+		"static/lib/coub.js",
         "static/lib/main.js"
 	]
 }
